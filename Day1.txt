@@ -1,0 +1,13 @@
+What is ZeroToFullStack?
+
+Zero To Full Stack is my way to help others enter the field of software development. I taught myself to code and now I’m making a 6 figure salary and it’s really changed my life. I want others to see this kind of growth but hopefully with a little less friction.
+
+I took a long and winding road to get where I am. It feels like endless nights of reading articles, learning different languages, frameworks and libraries, watching YouTube videos and even reading the Twitter threads of successful engineers. I found plenty of great things, but also some things that were irrelevant, hard to understand or just plain boring. My goal with Z2FS is that I can help you recreate my journey, but ONLY the pieces are valuable. 
+
+There will certainly be a few things that are “tangents” or “strings to pull on” if you’re interested. These are things that would help add to the overall software education, but are not required. I will point these out as potential roads to explore, but I’ll leave you to decide if you want to travel down them. 
+
+
+So do you climb this stack? Well I’ve drawn my inspiration from video games. I have create a “skill tree” for your to climb. I’ll start with the most basic concepts, and easiest tools and get increasingly difficult as we go. At a certain point you’ll become eligible for interview practice and career training. At all points you’ll have access to the community who are there as your comrades allong the way. 
+
+I hope you’ll enjoy this project and I can’t wait to see you in the Slack Channels. 
+
