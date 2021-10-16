@@ -1,6 +1,13 @@
 import fs from 'fs'
 
-// Interfaces
+const args: string[] = process.argv;
+
+let inputFile;
+if (args.length > 2){
+    inputFile = args[2];
+}
+
+//#region : Interfaces
 interface ISummary{
     paragraphCount?: number;
     sentanceCount?: number;
@@ -18,11 +25,17 @@ const summary:ISummary = {
     characterCount: 0,
     averageWordSize: ''
 }
+//#endregion
 
 // Read in the Article
 let article = '';
 try {
-    article = fs.readFileSync('./Day1.txt', 'utf8')
+    if(inputFile){
+        article = fs.readFileSync(inputFile, 'utf8');
+        console.log('Reading File: ' + inputFile);
+    } else {
+        article = fs.readFileSync('./Day1.txt', 'utf8')
+    }
 } catch (err){
     console.error(err)
 }
