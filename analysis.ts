@@ -15,6 +15,8 @@ interface ISummary{
     averageWordsInSentance: string
     characterCount?: number;
     averageWordSize?: string;
+    littleWords?: number;
+    largerWords?: number;
 }
 
 const summary:ISummary = {
@@ -40,6 +42,15 @@ try {
     console.error(err)
 }
 
+// Setting up dictionaries and other literary tools?
+const indefiniteArticles = ['a','an', 'the'];
+const pronouns = ['he', 'her', 'them', 'you'];
+const posessivePronouns = ['his', 'hers', 'their', 'theirs', 'yours'];
+const others = ['of', 'on', 'in', 'for', 'it', 'that', 'and', 'from', 'at'];
+const stuff = ['these', 'those']
+const littleWords = [...indefiniteArticles, ...pronouns, ...posessivePronouns, ...others, ...stuff];
+
+
 // Basic Analysis
 const paragraphs = article?.split('\n').filter(Boolean);
 const sentances = article?.split(/\.|\?|\!/).filter(Boolean);
@@ -47,7 +58,13 @@ const words = article?.split(/\s/).filter(Boolean);
 const averageWordsInSentance = words.length / sentances.length;
 const totalCharInWords = words.map(w => w.length).reduce( (acc, current ) => acc + current,  0 );
 const avgWordSize = (totalCharInWords / words.length).toFixed(2);
-
+const countOfLittleWords = words.reduce((countOfLittleWords: number, currentWord): number => {
+    if(littleWords.includes(currentWord.trim())){
+        return countOfLittleWords+=1
+    } else {
+        return countOfLittleWords
+    }
+}, 0)
 // Compile the Summary
 summary.paragraphCount = paragraphs.length;
 summary.sentanceCount = sentances.length;
@@ -55,6 +72,9 @@ summary.wordCount = words.length;
 summary.characterCount = article.length;
 summary.averageWordSize = avgWordSize;
 summary.averageWordsInSentance = averageWordsInSentance.toFixed(2);
+summary.littleWords = countOfLittleWords;
+summary.largerWords = summary.wordCount - summary.littleWords;
+
 
 // Output the summary
 // console.log(article);
